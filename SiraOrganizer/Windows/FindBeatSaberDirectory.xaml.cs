@@ -1,6 +1,5 @@
-﻿using System.Windows;
+﻿using System.ComponentModel;
 using MahApps.Metro.Controls;
-using System.ComponentModel;
 
 namespace SiraOrganizer.Windows
 {

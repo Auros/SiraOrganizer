@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using SiraOrganizer.Utilities;
+using System;
 using System.Windows;
 
 namespace SiraOrganizer
@@ -13,5 +9,21 @@ namespace SiraOrganizer
     /// </summary>
     public partial class App : Application
     {
+        public static Random Random { get; private set; }
+        public static Settings Settings { get; private set; }
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            Random = new Random();
+            Settings = new Settings();
+            Settings.Load();
+        }
+
+        protected override void OnExit(ExitEventArgs e)
+        {
+            Settings.Save();
+            base.OnExit(e);
+        }
     }
 }
